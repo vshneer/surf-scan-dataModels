@@ -47,8 +47,8 @@ publishing {
             name = "SurfScanDataModels"
             url = uri("https://maven.pkg.github.com/vshneer/surf-scan-dataModels")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+                username = "$System.env.GH_USER"
+                password = "$System.env.GH_TOKEN"
             }
         }
     }
