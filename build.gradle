@@ -2,11 +2,12 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.1.0'
     id 'io.spring.dependency-management' version '1.1.0'
+    id 'maven-publish'
+
 }
 
 group 'com.carmel.surfScan'
-version '1.0-SNAPSHOT'
-
+version '1.1'
 
 java {
     sourceCompatibility = '17'
@@ -38,4 +39,22 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "SurfScanDataModels"
+            url = uri("https://maven.pkg.github.com/vshneer/surf-scan-dataModels")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+        }
+    }
 }
