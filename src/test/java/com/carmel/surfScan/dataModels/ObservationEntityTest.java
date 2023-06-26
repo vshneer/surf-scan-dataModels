@@ -16,8 +16,8 @@ public class ObservationEntityTest extends Utils{
 
     @Test
     void GIVEN_JOB_WHEN_ADD_OBSERVATION_THEN_READ_OBSERVATION_FROM_JOB(){
-        createJob();
-        addObservation();
+        int jobPrimaryId = createJob();
+        addObservation(jobPrimaryId);
         Job job = jobRepository.findByJobId(JOB_ID);
         assertAll(
                 () -> assertFalse(job.getObservations().isEmpty()),
@@ -31,10 +31,10 @@ public class ObservationEntityTest extends Utils{
         );
     }
 
-    private void addObservation(){
+    private void addObservation(int jobPrimaryId){
         Observation observation = new Observation();
         observation.setObservation(SAMPLE_OBSERVATION);
-        observation.setJob(jobRepository.findByJobId(JOB_ID));
+        observation.setJobId(jobPrimaryId);
         observationRepository.save(observation);
     }
 }

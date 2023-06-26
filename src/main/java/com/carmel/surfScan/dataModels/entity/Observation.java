@@ -15,7 +15,11 @@ public class Observation {
 
     String observation;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="job", referencedColumnName = "id")
+    @JoinColumn(name = "job", insertable = false, updatable = false)
+    @ManyToOne(targetEntity = Job.class, fetch = FetchType.LAZY)
     private Job job;
+
+    @Column(name = "job")
+    private long jobId;
+
 }
