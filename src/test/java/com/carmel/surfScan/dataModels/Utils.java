@@ -26,12 +26,13 @@ public class Utils {
     @Autowired
     ObservationRepository observationRepository;
 
-    void createJob(){
+    int createJob(){
         Job job = new Job();
         job.setJobId(JOB_ID);
         job.setDomain(DOMAIN);
         job.setJobType(jobTypeRepository.findByTypeTitle(JOB_TYPE));
         job.setJobStatus(jobStatusRepository.findByStatusTitle(INITIAL_JOB_STATUS));
         jobRepository.save(job);
+        return job.getId();
     }
 }

@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class DomainJob {
-    String jobId;
+    Integer jobPrimaryId;
     String domain;
 }
