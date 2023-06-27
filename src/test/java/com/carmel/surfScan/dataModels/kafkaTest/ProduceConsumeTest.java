@@ -4,18 +4,17 @@ import com.carmel.surfScan.dataModels.Utils;
 import com.carmel.surfScan.dataModels.kafkaMessage.DomainJob;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.kafka.test.context.EmbeddedKafka;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -31,6 +30,7 @@ public class ProduceConsumeTest extends Utils {
     private String topic;
 
     @Autowired
+    @Qualifier("DomainJobKafkaTemplate")
     private KafkaTemplate<String, DomainJob> kafkaTemplate;
 
     @Autowired
