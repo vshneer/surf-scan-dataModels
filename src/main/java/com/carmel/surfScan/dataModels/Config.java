@@ -35,16 +35,6 @@ public class Config {
     }
 
     @Bean
-    public NewTopic pingTopic() {
-        return new NewTopic("ping", 1, (short) 1);
-    }
-
-    @Bean
-    public NewTopic domainTopic() {
-        return new NewTopic("domain", 1, (short) 1);
-    }
-
-    @Bean
     public ConsumerFactory<String, DomainJob> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put(
