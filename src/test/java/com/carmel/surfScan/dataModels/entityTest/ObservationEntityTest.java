@@ -1,5 +1,6 @@
-package com.carmel.surfScan.dataModels;
+package com.carmel.surfScan.dataModels.entityTest;
 
+import com.carmel.surfScan.dataModels.Utils;
 import com.carmel.surfScan.dataModels.entity.Job;
 import com.carmel.surfScan.dataModels.entity.Observation;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @Sql(scripts = "/create-data.sql")
 @DirtiesContext
-public class ObservationEntityTest extends Utils{
+public class ObservationEntityTest extends Utils {
 
     @Test
     void GIVEN_JOB_WHEN_ADD_OBSERVATION_THEN_READ_OBSERVATION_FROM_JOB(){

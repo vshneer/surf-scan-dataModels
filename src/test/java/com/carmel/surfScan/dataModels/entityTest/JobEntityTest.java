@@ -1,5 +1,6 @@
-package com.carmel.surfScan.dataModels;
+package com.carmel.surfScan.dataModels.entityTest;
 
+import com.carmel.surfScan.dataModels.Utils;
 import com.carmel.surfScan.dataModels.entity.Job;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @Sql(scripts = "/create-data.sql")
 @DirtiesContext
-public class JobEntityTest extends Utils{
+public class JobEntityTest extends Utils {
 
     @Test
     void WHEN_JOB_SAVED_THEN_FINDS_BY_JOB_ID(){

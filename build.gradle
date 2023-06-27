@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'com.carmel.surfScan'
-version '2.0'
+version '3.0'
 
 java {
     sourceCompatibility = '17'
@@ -25,15 +25,16 @@ dependencies {
     implementation 'org.springframework.kafka:spring-kafka'
     implementation 'org.projectlombok:lombok:1.18.26'
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+    implementation 'org.springframework.kafka:spring-kafka'
 
     runtimeOnly 'com.h2database:h2'
-
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
 
 }
 
