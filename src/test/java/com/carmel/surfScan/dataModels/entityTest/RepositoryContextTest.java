@@ -1,4 +1,4 @@
-package com.carmel.surfScan.dataModels;
+package com.carmel.surfScan.dataModels.entityTest;
 
 import com.carmel.surfScan.dataModels.repository.JobRepository;
 import com.carmel.surfScan.dataModels.repository.JobStatusRepository;
